@@ -1,0 +1,656 @@
+<!DOCTYPE html><html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palermo, oggi caldo intenso: temperature fino a 32 °C</title><link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d85b28">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png"><style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700;800&display=swap');
+
+:root {
+  --ink: #342116;
+  --paper: #fff8ed;
+  --orange: #e56b2f;
+  --orange-dark: #b84317;
+  --yellow: #f2c14e;
+  --sky: #f7b267;
+  --hot: #e4572e;
+  --cream: #fff1d6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 45px 18px 90px;
+
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.35), transparent 30%),
+    linear-gradient(180deg, #f7b267 0%, #f4845f 48%, #e4572e 100%);
+
+  background-attachment: fixed;
+
+  font-family: 'Archivo', sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  color: var(--ink);
+
+  overflow-x: hidden;
+}
+
+/* Sole decorativo */
+
+body::before {
+  content: "☀";
+  position: fixed;
+  top: 10px;
+  right: 15px;
+
+  font-size: 90px;
+  opacity: .16;
+
+  pointer-events: none;
+}
+
+/* Onde decorative */
+
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 120px;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(ellipse at 20% 100%,
+      rgba(255,255,255,.16) 0%,
+      transparent 55%),
+    radial-gradient(ellipse at 80% 100%,
+      rgba(255,255,255,.12) 0%,
+      transparent 55%);
+}
+
+/* CARTELLO */
+
+.cartello {
+  width: 100%;
+  max-width: 500px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.5),
+      rgba(255,255,255,0) 25%
+    ),
+    linear-gradient(
+      160deg,
+      #fffaf0 0%,
+      #fff3db 100%
+    );
+
+  border: 6px solid var(--ink);
+
+  box-shadow:
+    0 25px 60px rgba(80,35,10,.38),
+    10px 10px 0 rgba(110,45,15,.45);
+
+  position: relative;
+  z-index: 1;
+}
+
+/* STRISCIA SUPERIORE */
+
+.tape-row {
+  display: flex;
+  height: 14px;
+}
+
+.tape-row div {
+  flex: 1;
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      var(--orange),
+      var(--orange) 12px,
+      var(--ink) 12px,
+      var(--ink) 24px
+    );
+}
+
+/* CONTENUTO */
+
+.content {
+  padding: 30px 28px 34px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  color: var(--orange-dark);
+
+  font-weight: 800;
+
+  margin-bottom: 9px;
+}
+
+h1 {
+  font-family: 'Archivo Black', sans-serif;
+
+  font-size: 31px;
+  line-height: 1.08;
+
+  margin: 0 0 18px;
+
+  color: var(--ink);
+
+  border-bottom: 3px solid var(--ink);
+
+  padding-bottom: 15px;
+}
+
+/* INTRO */
+
+.intro {
+  font-size: 17px;
+  line-height: 1.55;
+
+  margin-bottom: 24px;
+
+  font-weight: 500;
+}
+
+.intro strong {
+  color: var(--orange-dark);
+  font-weight: 800;
+}
+
+/* BOX TEMPERATURE */
+
+.temperature-box {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin: 20px 0 25px;
+}
+
+.temp {
+  border: 3px solid var(--ink);
+
+  padding: 17px 15px;
+
+  background: #fffdf7;
+
+  text-align: center;
+}
+
+.temp .label {
+  display: block;
+
+  font-size: 12px;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+
+  font-weight: 800;
+
+  margin-bottom: 5px;
+}
+
+.temp .number {
+  display: block;
+
+  font-family: 'Archivo Black', sans-serif;
+
+  font-size: 36px;
+
+  line-height: 1;
+}
+
+.temp.min .number {
+  color: #3b82a0;
+}
+
+.temp.max {
+  background: #fff0df;
+}
+
+.temp.max .number {
+  color: var(--hot);
+}
+
+/* GRAFICO */
+
+.graph-title {
+  font-family: 'Archivo Black', sans-serif;
+
+  font-size: 18px;
+
+  margin: 4px 0 12px;
+}
+
+.graph {
+  border: 3px solid var(--ink);
+
+  background: #fffdf7;
+
+  padding: 18px 15px 14px;
+
+  margin-bottom: 25px;
+}
+
+.graph-area {
+  height: 150px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-around;
+
+  gap: 30px;
+
+  border-bottom: 3px solid var(--ink);
+
+  padding: 0 25px;
+}
+
+.bar {
+  width: 70px;
+
+  border: 3px solid var(--ink);
+
+  border-bottom: 0;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  padding-top: 8px;
+
+  font-family: 'Archivo Black', sans-serif;
+
+  font-size: 17px;
+
+  color: var(--ink);
+}
+
+.bar.min {
+  height: 72px;
+
+  background: #9bd0df;
+}
+
+.bar.max {
+  height: 125px;
+
+  background: #f47b45;
+}
+
+.bar-labels {
+  display: flex;
+
+  justify-content: space-around;
+
+  gap: 30px;
+
+  padding: 9px 25px 0;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  text-align: center;
+}
+
+/* SEZIONI */
+
+.sezione {
+  margin-top: 24px;
+}
+
+.sezione h2 {
+  font-family: 'Archivo Black', sans-serif;
+
+  font-size: 20px;
+
+  margin: 0 0 12px;
+
+  border-left: 6px solid var(--orange);
+
+  padding-left: 10px;
+}
+
+.sezione p {
+  font-size: 16px;
+
+  line-height: 1.58;
+
+  margin: 0;
+}
+
+/* PROTEZIONE */
+
+.protezione {
+  margin-top: 22px;
+
+  background: var(--ink);
+
+  color: #fff8ed;
+
+  padding: 20px 20px 19px;
+
+  border-left: 6px solid var(--yellow);
+}
+
+.protezione .label {
+  display: block;
+
+  font-family: 'Archivo Black', sans-serif;
+
+  color: var(--yellow);
+
+  font-size: 14px;
+
+  letter-spacing: .1em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+.protezione ul {
+  margin: 0;
+
+  padding-left: 21px;
+}
+
+.protezione li {
+  margin-bottom: 9px;
+
+  font-size: 15px;
+
+  line-height: 1.45;
+}
+
+.protezione li:last-child {
+  margin-bottom: 0;
+}
+
+/* DIVISORE */
+
+.divider {
+  border: none;
+
+  border-top: 2px dashed #cdb995;
+
+  margin: 27px 0;
+}
+
+/* CONCLUSIONE */
+
+.esito {
+  background: #ffe8c4;
+
+  border: 3px solid var(--ink);
+
+  padding: 17px 18px;
+
+  font-size: 15.5px;
+
+  line-height: 1.5;
+
+  font-weight: 700;
+}
+
+.esito strong {
+  color: var(--orange-dark);
+}
+
+/* FONTE */
+
+.fonte {
+  margin-top: 20px;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  color: #756550;
+
+  font-style: italic;
+}
+
+/* FOOTER */
+
+.footer {
+  margin-top: 18px;
+
+  font-size: 11px;
+
+  color: #756550;
+
+  text-align: right;
+
+  font-style: italic;
+}
+
+/* MOBILE */
+
+@media (max-width: 420px) {
+
+  body {
+    padding: 25px 12px 70px;
+  }
+
+  .content {
+    padding: 25px 21px 30px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .intro {
+    font-size: 16px;
+  }
+
+  .temperature-box {
+    gap: 8px;
+  }
+
+  .temp .number {
+    font-size: 31px;
+  }
+
+  .graph-area {
+    padding: 0 10px;
+  }
+
+  .bar-labels {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+</style></head><body><div class="cartello">  <div class="tape-row">
+    <div></div>
+  </div>  <div class="content"><div class="eyebrow">
+  Meteo Palermo · 10 agosto 2026
+</div>
+
+<h1>
+  Palermo, oggi caldo intenso: temperature fino a 32 °C
+</h1>
+
+<p class="intro">
+  Palermo vive una giornata pienamente estiva, con temperature
+  elevate e condizioni favorevoli al <strong>caldo intenso</strong>.
+  La temperatura minima si aggira intorno ai <strong>26 °C</strong>,
+  mentre la massima prevista raggiunge circa <strong>32 °C</strong>.
+</p>
+
+<!-- TEMPERATURE -->
+
+<div class="temperature-box">
+
+  <div class="temp min">
+    <span class="label">Minima</span>
+    <span class="number">26°</span>
+  </div>
+
+  <div class="temp max">
+    <span class="label">Massima</span>
+    <span class="number">32°</span>
+  </div>
+
+</div>
+
+<!-- GRAFICO -->
+
+<div class="graph-title">
+  Temperature previste
+</div>
+
+<div class="graph">
+
+  <div class="graph-area">
+
+    <div class="bar min">
+      26°
+    </div>
+
+    <div class="bar max">
+      32°
+    </div>
+
+  </div>
+
+  <div class="bar-labels">
+    <div>Minima</div>
+    <div>Massima</div>
+  </div>
+
+</div>
+
+<!-- ARTICOLO -->
+
+<div class="sezione">
+
+  <h2>Una giornata molto calda</h2>
+
+  <p>
+    Le ore centrali della giornata saranno quelle in cui il caldo
+    risulterà più intenso. Chi deve trascorrere molto tempo
+    all'aperto dovrebbe quindi organizzare le proprie attività
+    evitando, quando possibile, le ore di maggiore irraggiamento
+    solare.
+  </p>
+
+</div>
+
+<hr class="divider">
+
+<!-- PROTEZIONE -->
+
+<div class="protezione">
+
+  <span class="label">
+    Come proteggersi dal caldo
+  </span>
+
+  <ul>
+    <li>Bere acqua regolarmente durante la giornata.</li>
+
+    <li>
+      Evitare l'esposizione diretta al sole nelle ore più calde.
+    </li>
+
+    <li>
+      Indossare abiti leggeri, traspiranti e di colore chiaro.
+    </li>
+
+    <li>
+      Utilizzare cappello, occhiali da sole e crema solare.
+    </li>
+
+    <li>
+      Limitare l'attività fisica intensa nelle ore centrali.
+    </li>
+
+    <li>
+      Prestare particolare attenzione a bambini e anziani.
+    </li>
+  </ul>
+
+</div>
+
+<div class="sezione">
+
+  <h2>Attenzione ai segnali del caldo</h2>
+
+  <p>
+    In presenza di debolezza, vertigini, nausea, mal di testa o
+    malessere è consigliabile interrompere l'attività, raggiungere
+    un luogo fresco e idratarsi. In caso di sintomi importanti o
+    persistenti è opportuno chiedere assistenza medica.
+  </p>
+
+</div>
+
+<hr class="divider">
+
+<div class="esito">
+
+  <strong>IN SINTESI</strong><br><br>
+
+  Oggi a Palermo il caldo sarà protagonista:
+  <strong>26 °C circa di minima e 32 °C di massima</strong>.
+  Una giornata da vivere all'aperto con le normali precauzioni
+  contro le temperature elevate.
+
+</div>
+
+<div class="fonte">
+  Dati meteorologici indicativi riferiti alle previsioni disponibili
+  per Palermo. Le condizioni e le temperature possono subire
+  aggiornamenti nel corso della giornata.
+</div>
+
+<div class="footer">
+  Articolo meteo · Palermo · agosto 2026
+</div>
+
+  </div>  <div class="tape-row">
+    <div></div>
+  </div></div><script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script></body>
+</html>
