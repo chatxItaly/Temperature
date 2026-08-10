@@ -8,7 +8,6 @@
 <title>Palermo, oggi caldo e afa: temperature fino a 32 °C</title>
 
 <link rel="manifest" href="manifest.json">
-
 <meta name="theme-color" content="#d85b28">
 
 <link rel="icon" href="icon-192.png">
@@ -66,30 +65,23 @@ body {
   overflow-x: hidden;
 }
 
-/* SOLE DECORATIVO */
-
 body::before {
   content: "☀";
 
   position: fixed;
-
   top: 10px;
   right: 15px;
 
   font-size: 90px;
-
   opacity: .16;
 
   pointer-events: none;
 }
 
-/* DECORAZIONE IN BASSO */
-
 body::after {
   content: "";
 
   position: fixed;
-
   left: 0;
   right: 0;
   bottom: 0;
@@ -136,15 +128,13 @@ body::after {
     10px 10px 0 rgba(110,45,15,.45);
 
   position: relative;
-
   z-index: 1;
 }
 
-/* STRISCIA SUPERIORE E INFERIORE */
+/* STRISCE */
 
 .tape-row {
   display: flex;
-
   height: 14px;
 }
 
@@ -171,9 +161,7 @@ body::after {
 
 .eyebrow {
   font-size: 12px;
-
   letter-spacing: .18em;
-
   text-transform: uppercase;
 
   color: var(--orange-dark);
@@ -189,7 +177,6 @@ h1 {
   font-family: 'Archivo Black', sans-serif;
 
   font-size: 31px;
-
   line-height: 1.08;
 
   margin: 0 0 18px;
@@ -205,7 +192,6 @@ h1 {
 
 .intro {
   font-size: 17px;
-
   line-height: 1.55;
 
   margin-bottom: 24px;
@@ -215,11 +201,10 @@ h1 {
 
 .intro strong {
   color: var(--orange-dark);
-
   font-weight: 800;
 }
 
-/* RIQUADRI TEMPERATURE */
+/* TEMPERATURE */
 
 .temperature-box {
   display: grid;
@@ -277,7 +262,7 @@ h1 {
   color: var(--hot);
 }
 
-/* TITOLO GRAFICO */
+/* GRAFICO */
 
 .graph-title {
   font-family: 'Archivo Black', sans-serif;
@@ -286,8 +271,6 @@ h1 {
 
   margin: 4px 0 12px;
 }
-
-/* GRAFICO */
 
 .graph {
   border: 3px solid var(--ink);
@@ -341,13 +324,11 @@ h1 {
 
 .bar.min {
   height: 105px;
-
   background: #9bd0df;
 }
 
 .bar.max {
   height: 130px;
-
   background: #f47b45;
 }
 
@@ -367,9 +348,9 @@ h1 {
   text-align: center;
 }
 
-/* LINK Chat 🇮🇹*/
+/* LINK METEO UFFICIALE */
 
-.link- Chat {
+.link-meteo {
   display: block;
 
   margin: 24px 0;
@@ -570,6 +551,50 @@ h1 {
   color: var(--orange-dark);
 }
 
+/* NAVIGAZIONE */
+
+.navigazione-meteo {
+  margin-top: 25px;
+
+  text-align: center;
+}
+
+.btn-meteo {
+  display: inline-block;
+
+  background: var(--orange);
+
+  color: #ffffff;
+
+  padding: 14px 20px;
+
+  border: 3px solid var(--ink);
+
+  box-shadow: 4px 4px 0 var(--ink);
+
+  text-decoration: none;
+
+  font-family: 'Archivo Black', sans-serif;
+
+  font-size: 15px;
+
+  transition: .15s ease;
+}
+
+.btn-meteo:hover {
+  background: var(--orange-dark);
+
+  transform: translate(2px, 2px);
+
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.btn-meteo:active {
+  transform: translate(4px, 4px);
+
+  box-shadow: none;
+}
+
 /* FONTE */
 
 .fonte {
@@ -582,12 +607,6 @@ h1 {
   color: #756550;
 
   font-style: italic;
-}
-
-.fonte a {
-  color: var(--orange-dark);
-
-  font-weight: 800;
 }
 
 /* FOOTER */
@@ -604,7 +623,7 @@ h1 {
   font-style: italic;
 }
 
-/* VERSIONE MOBILE */
+/* MOBILE */
 
 @media (max-width: 420px) {
 
@@ -641,9 +660,8 @@ h1 {
     padding-right: 10px;
   }
 
-  .link-meteo {
-    font-size: 14px;
-    padding: 14px 12px;
+  .btn-meteo {
+    width: 100%;
   }
 
 }
@@ -656,15 +674,11 @@ h1 {
 
 <div class="cartello">
 
-  <!-- STRISCIA -->
-
   <div class="tape-row">
     <div></div>
   </div>
 
   <div class="content">
-
-    <!-- TITOLO -->
 
     <div class="eyebrow">
       Meteo Palermo · 10 agosto 2026
@@ -673,8 +687,6 @@ h1 {
     <h1>
       Palermo, oggi caldo e afa: temperature fino a 32 °C
     </h1>
-
-    <!-- INTRO -->
 
     <p class="intro">
 
@@ -749,19 +761,19 @@ h1 {
 
     </div>
 
-    <!-- LINK Chat 🇮🇹 -->
+    <!-- LINK METEO UFFICIALE -->
 
     <a
       class="link-meteo"
-      href="https://unox1chat.netlify.app/"
+      href="https://www.meteoam.it/it/meteo-citta/palermo"
       target="_blank"
       rel="noopener noreferrer"
     >
 
-       Chat 🇮🇹 Italia 🔥VISITA 🔥
+      🌤️ Consulta le previsioni ufficiali
 
       <small>
-         Unox1Chat 🇮🇹💞
+        Palermo · Aeronautica Militare →
       </small>
 
     </a>
@@ -865,7 +877,7 @@ h1 {
 
     <hr class="divider">
 
-    <!-- IN SINTESI -->
+    <!-- SINTESI -->
 
     <div class="esito">
 
@@ -882,6 +894,19 @@ h1 {
 
     </div>
 
+    <!-- PULSANTE DOMANI -->
+
+    <div class="navigazione-meteo">
+
+      <a
+        href="Domani/index.html"
+        class="btn-meteo"
+      >
+        Previsioni di domani →
+      </a>
+
+    </div>
+
     <!-- FONTE -->
 
     <div class="fonte">
@@ -892,8 +917,6 @@ h1 {
 
     </div>
 
-    <!-- FOOTER -->
-
     <div class="footer">
 
       Articolo meteo · Palermo · 10 agosto 2026
@@ -902,15 +925,11 @@ h1 {
 
   </div>
 
-  <!-- STRISCIA INFERIORE -->
-
   <div class="tape-row">
     <div></div>
   </div>
 
 </div>
-
-<!-- SERVICE WORKER -->
 
 <script>
 
