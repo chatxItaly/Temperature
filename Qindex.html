@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avviso - Stadio di Aspra</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1c1a17">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+
+  :root {
+    --ink: #1c1a17;
+    --paper: #f2ede1;
+    --amber: #d9a441;
+    --amber-dark: #a86f1f;
+    --line: #1c1a17;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 40px 16px;
+    background: #3a352c;
+    font-family: 'Archivo', sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cartello {
+    width: 100%;
+    max-width: 520px;
+    background: var(--paper);
+    border: 6px solid var(--ink);
+    position: relative;
+    padding: 0;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.35);
+  }
+
+  .tape-row {
+    display: flex;
+    height: 14px;
+  }
+  .tape-row div {
+    flex: 1;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--amber),
+      var(--amber) 12px,
+      var(--ink) 12px,
+      var(--ink) 24px
+    );
+  }
+
+  .content {
+    padding: 28px 30px 32px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 26px;
+    line-height: 1.15;
+    margin: 0 0 18px;
+    color: var(--ink);
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 14px;
+  }
+
+  .riga {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+
+  .marker {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    border: 2.5px solid var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 15px;
+    background: var(--paper);
+  }
+
+  .marker.no { color: var(--ink); }
+  .marker.warn {
+    background: var(--amber);
+    border-color: var(--ink);
+  }
+
+  .testo { font-size: 15px; line-height: 1.5; }
+  .testo strong { font-weight: 700; }
+
+  .divider {
+    border: none;
+    border-top: 2px dashed #9b9280;
+    margin: 20px 0;
+  }
+
+  .esito {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 18px;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  .esito .label {
+    display: block;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+
+  .footer {
+    margin-top: 18px;
+    font-size: 11px;
+    color: #6b6455;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .link-esterno {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--amber-dark);
+    text-decoration: none;
+    border-bottom: 2px solid var(--amber-dark);
+    padding-bottom: 2px;
+  }
+  .link-esterno:hover { color: var(--ink); border-color: var(--ink); }
+  .link-esterno .freccia { transition: transform 0.15s ease; }
+  .link-esterno:hover .freccia { transform: translateX(3px); }
+</style>
+</head>
+<body>
+  <div class="cartello">
+    <div class="tape-row"><div></div></div>
+    <div class="content">
+      <div class="eyebrow">Avviso informale &middot; non ufficiale</div>
+      <h1>Stadio di Aspra</h1>
+
+      <div class="riga">
+        <div class="marker no">✕</div>
+        <div class="testo">Nessun <strong>divieto ufficiale</strong> risulta attivo davanti allo stadio, né nel 2025 né nel 2026.</div>
+      </div>
+
+      <div class="riga">
+        <div class="marker warn">!</div>
+        <div class="testo">Nel 2025 è stato segnalato un episodio concreto: circa <strong>50 topi</strong> avvistati nella zona.</div>
+      </div>
+
+      <div class="riga">
+        <div class="marker warn">!</div>
+        <div class="testo">Questo dimostra che possono verificarsi <strong>episodi locali</strong> non sempre seguiti da un'ordinanza immediata.</div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="esito">
+        <span class="label">In sintesi</span>
+        Assenza di divieto non significa assenza di rischio. Meglio muoversi con prudenza in zona.
+      </div>
+
+      <a class="link-esterno" href="https://poteremax70.github.io/Sito/" target="_blank" rel="noopener">
+        Prova  chat italiana<span class="freccia">→</span>
+      </a>
+
+      <div class="footer">promemoria personale &middot; agosto 2026</div>
+    </div>
+    <div class="tape-row"><div></div></div>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
