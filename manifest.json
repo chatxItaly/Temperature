@@ -1,6 +1,6 @@
 {
-  "name": "Avviso Stadio di Aspra",
-  "short_name": "Aspra",
+  "name": "Previsioni Meteo",
+  "short_name": "Meteo",
   "description": "Promemoria: nessun divieto ufficiale, ma prudenza per episodi di topi segnalati.",
   "start_url": "./",
   "scope": "./",
