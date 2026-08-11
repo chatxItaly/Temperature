@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="HandheldFriendly" content="true">
 
 <title>Previsioni meteo a Palermo: temperature fino a 33 °C</title>
 
-<link rel="manifest" href="../manifest.json">
-<meta name="theme-color" content="#d85b28">
+<meta name="theme-color" content="#1B2A4A">
 
-<link rel="icon" href="../icon-192.png">
-<link rel="apple-touch-icon" href="../icon-192.png">
+<meta name="description" content="Previsioni meteo per Palermo, martedì 11 agosto 2026: giornata calda con temperature tra 26 °C e 33 °C.">
 
 <style>
 
-@import url('"https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700;800&display=swap" (https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700;800&display=swap)');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
 :root {
-  --ink: #342116;
-  --orange: #e56b2f;
-  --orange-dark: #b84317;
-  --yellow: #f2c14e;
-  --hot: #e4572e;
-  --blue: #3b82a0;
+  --sand: #F3EEE1;
+  --card: #FFFDF7;
+  --navy: #1B2A4A;
+  --navy-soft: #33456b;
+  --gold: #C9A227;
+  --gold-soft: #E7CE7E;
+  --teal: #2C7873;
+  --terracotta: #B23A2E;
+  --line: #DED5BE;
 }
 
 * {
@@ -42,281 +39,464 @@ body {
 
 body {
   margin: 0;
-  padding: 25px 12px 70px;
+  padding: 32px 14px 70px;
 
-  background:
+  background: var(--sand);
+
+  background-image:
     radial-gradient(
-      circle at 20% 10%,
-      rgba(255,255,255,.35),
-      transparent 30%
-    ),
-    linear-gradient(
-      180deg,
-      #f7b267 0%,
-      #f4845f 48%,
-      #e4572e 100%
-    );
-
-  background-attachment: fixed;
-
-  font-family: 'Archivo', sans-serif;
-
-  display: block;
-
-  color: var(--ink);
-
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "☀";
-
-  position: fixed;
-  top: 10px;
-  right: 15px;
-
-  font-size: 90px;
-  opacity: .16;
-
-  pointer-events: none;
-}
-
-body::after {
-  content: "";
-
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 120px;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at 20% 100%,
-      rgba(255,255,255,.16) 0%,
-      transparent 55%
+      circle at 15% 0%,
+      rgba(201,162,39,.10),
+      transparent 40%
     ),
     radial-gradient(
-      ellipse at 80% 100%,
-      rgba(255,255,255,.12) 0%,
-      transparent 55%
+      circle at 100% 100%,
+      rgba(44,120,115,.08),
+      transparent 45%
     );
+
+  font-family: 'Inter', sans-serif;
+
+  color: var(--navy);
+}
+
+.page {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* RIBBON */
+
+.ribbon {
+  height: 10px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--navy) 0 22px,
+      var(--gold) 22px 26px,
+      var(--teal) 26px 48px,
+      var(--gold) 48px 52px
+    );
+
+  border-radius: 6px 6px 0 0;
 }
 
 /* CARTELLO */
 
 .cartello {
-  width: 100%;
-  max-width: 100%;
+  background: var(--card);
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.5),
-      rgba(255,255,255,0) 25%
-    ),
-    linear-gradient(
-      160deg,
-      #fffaf0 0%,
-      #fff3db 100%
-    );
+  border: 1px solid var(--line);
 
-  border: 6px solid var(--ink);
+  border-top: none;
+
+  border-radius: 0 0 6px 6px;
 
   box-shadow:
-    0 25px 60px rgba(80,35,10,.38),
-    10px 10px 0 rgba(110,45,15,.45);
-
-  position: relative;
-  z-index: 1;
+    0 18px 40px rgba(27,42,74,.10);
 }
-
-/* STRISCE */
-
-.tape-row {
-  display: flex;
-  height: 14px;
-}
-
-.tape-row div {
-  flex: 1;
-
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      var(--orange),
-      var(--orange) 12px,
-      var(--ink) 12px,
-      var(--ink) 24px
-    );
-}
-
-/* CONTENUTO */
 
 .content {
-  padding: 25px 21px 30px;
-}
-
-/* SOPRATITOLO */
-
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--orange-dark);
-  font-weight: 800;
-  margin-bottom: 9px;
+  padding: 30px 26px 32px;
 }
 
 /* TITOLO */
 
+.eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 12px;
+
+  letter-spacing: .1em;
+
+  text-transform: uppercase;
+
+  color: var(--navy-soft);
+
+  font-weight: 600;
+
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--gold);
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
 h1 {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 27px;
-  line-height: 1.08;
-  margin: 0 0 18px;
-  color: var(--ink);
-  border-bottom: 3px solid var(--ink);
-  padding-bottom: 15px;
+  font-family: 'Fraunces', serif;
+
+  font-weight: 600;
+
+  font-optical-sizing: auto;
+
+  font-size: 32px;
+
+  line-height: 1.12;
+
+  margin: 0 0 16px;
+
+  color: var(--navy);
+
+  letter-spacing: -.01em;
 }
 
 /* INTRO */
 
 .intro {
   font-size: 16px;
-  line-height: 1.55;
-  margin-bottom: 24px;
-  font-weight: 500;
+
+  line-height: 1.6;
+
+  margin-bottom: 26px;
+
+  color: var(--navy-soft);
 }
 
 .intro strong {
-  color: var(--orange-dark);
-  font-weight: 800;
+  color: var(--navy);
+
+  font-weight: 700;
 }
 
 /* TEMPERATURE */
 
-.temperature-box {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin: 20px 0 25px;
+.range {
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+
+  padding: 18px 20px;
+
+  margin-bottom: 28px;
+
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      90deg,
+      #EFF3F2 0%,
+      #FDF6E4 100%
+    );
 }
 
-.temp {
-  border: 3px solid var(--ink);
-  padding: 17px 15px;
-  background: #fffdf7;
-  text-align: center;
+.range .stat {
+  text-align: left;
 }
 
-.temp .label {
+.range .stat .label {
   display: block;
-  font-size: 12px;
-  letter-spacing: .12em;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 11px;
+
+  letter-spacing: .08em;
+
   text-transform: uppercase;
-  font-weight: 800;
-  margin-bottom: 5px;
+
+  color: var(--navy-soft);
+
+  margin-bottom: 4px;
 }
 
-.temp .number {
-  display: block;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 31px;
-  line-height: 1;
+.range .stat .number {
+  font-family: 'Fraunces', serif;
+
+  font-weight: 600;
+
+  font-size: 30px;
 }
 
-.temp.min .number {
-  color: var(--blue);
+.range .stat.min .number {
+  color: var(--teal);
 }
 
-.temp.max {
-  background: #fff0df;
+.range .stat.max .number {
+  color: var(--terracotta);
 }
 
-.temp.max .number {
-  color: var(--hot);
+.range .sep {
+  flex: 1;
+
+  height: 2px;
+
+  margin: 0 16px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--line) 0 6px,
+      transparent 6px 11px
+    );
+
+  align-self: center;
 }
 
 /* GRAFICO */
 
-.graph-title {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 18px;
-  margin: 4px 0 12px;
+.curve-wrap {
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+
+  padding: 20px 18px 12px;
+
+  margin-bottom: 28px;
 }
 
-.graph {
-  border: 3px solid var(--ink);
-  background: #fffdf7;
-  padding: 18px 15px 14px;
-  margin-bottom: 25px;
+.curve-title {
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 12px;
+
+  letter-spacing: .06em;
+
+  text-transform: uppercase;
+
+  color: var(--navy-soft);
+
+  font-weight: 600;
+
+  margin-bottom: 14px;
 }
 
-.graph-area {
-  height: 150px;
+.curve svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.curve-hours {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  gap: 30px;
-  border-bottom: 3px solid var(--ink);
-  padding: 0 10px;
+
+  justify-content: space-between;
+
+  padding: 6px 4px 0;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 11px;
+
+  color: var(--navy-soft);
 }
 
-.bar {
-  width: 70px;
-  border: 3px solid var(--ink);
-  border-bottom: 0;
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 8px;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 17px;
-  color: var(--ink);
+/* SEZIONI */
+
+section {
+  margin-top: 26px;
 }
 
-.bar.min {
-  height: 105px;
-  background: #9bd0df;
+section h2 {
+  font-family: 'Fraunces', serif;
+
+  font-weight: 600;
+
+  font-size: 19px;
+
+  margin: 0 0 10px;
+
+  color: var(--navy);
 }
 
-.bar.max {
-  height: 135px;
-  background: #f47b45;
+section p {
+  font-size: 15.5px;
+
+  line-height: 1.6;
+
+  margin: 0;
+
+  color: var(--navy-soft);
 }
 
-.bar-labels {
-  display: flex;
-  justify-content: space-around;
-  gap: 30px;
-  padding: 9px 10px 0;
-  font-size: 13px;
-  font-weight: 800;
-  text-align: center;
+/* AVVISO */
+
+.avviso {
+  margin-top: 24px;
+
+  background: var(--navy);
+
+  color: #F3EEE1;
+
+  padding: 20px;
+
+  border-radius: 4px;
+
+  border-left: 4px solid var(--terracotta);
 }
 
-/* 🔴🔴🔴 INIZIO CODICE PULSANTE CHAT ITALIANE 🔴🔴🔴 */
-
-.chat-italiane-btn {
+.avviso .label {
   display: block;
 
-  width: 94%;
-  max-width: 1250px;
+  font-family: 'IBM Plex Mono', monospace;
 
-  margin: 32px auto;
+  color: var(--gold-soft);
 
-  padding: 20px 10px;
+  font-size: 12px;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+.avviso p {
+  margin: 0;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  color: #EDE7D6;
+}
+
+/* PROTEZIONE */
+
+.protezione {
+  margin-top: 22px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+
+  padding: 20px;
+}
+
+.protezione .label {
+  display: block;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 12px;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  color: var(--teal);
+
+  font-weight: 600;
+
+  margin-bottom: 12px;
+}
+
+.protezione ul {
+  margin: 0;
+
+  padding-left: 0;
+
+  list-style: none;
+}
+
+.protezione li {
+  margin-bottom: 10px;
+
+  padding-left: 22px;
+
+  position: relative;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+
+  color: var(--navy-soft);
+}
+
+.protezione li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 7px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+}
+
+.protezione li:last-child {
+  margin-bottom: 0;
+}
+
+/* DIVISORE */
+
+.divider {
+  border: none;
+
+  border-top: 1px solid var(--line);
+
+  margin: 28px 0;
+}
+
+/* SINTESI */
+
+.esito {
+  background: #FBF6E6;
+
+  border: 1px solid var(--gold-soft);
+
+  border-radius: 4px;
+
+  padding: 18px 20px;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  color: var(--navy-soft);
+}
+
+.esito strong {
+  color: var(--navy);
+
+  font-weight: 700;
+}
+
+
+/* 🔴🔴🔴 BANNER CHAT ITALIANE 🔴🔴🔴 */
+
+.chat-italiane-btn {
+
+  display: block;
+
+  width: 96%;
+
+  margin: 30px auto 5px;
+
+  padding: 45px 10px;
 
   box-sizing: border-box;
 
   background: #bd3f16;
 
-  color: #fff;
+  color: white;
 
   text-align: center;
 
@@ -324,15 +504,15 @@ h1 {
 
   font-family: Arial, sans-serif;
 
-  font-size: 24px;
+  font-size: 34px;
 
   font-weight: bold;
 
-  border: 7px solid #3b2117;
+  border: 8px solid #3b2117;
 
   box-shadow:
-    0 5px 0 #24140e,
-    0 8px 12px rgba(0,0,0,0.35);
+    0 7px 0 #24140e,
+    0 10px 15px rgba(0,0,0,0.35);
 
   transition:
     background .15s ease,
@@ -344,167 +524,52 @@ h1 {
 }
 
 .chat-italiane-btn:active {
-  transform: translateY(4px);
+  transform: translateY(5px);
 }
 
-/* 🔴🔴🔴 FINE CODICE PULSANTE CHAT ITALIANE 🔴🔴🔴 */
-
-/* SEZIONI */
-
-.sezione {
-  margin-top: 24px;
-}
-
-.sezione h2 {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 20px;
-  margin: 0 0 12px;
-  border-left: 6px solid var(--orange);
-  padding-left: 10px;
-}
-
-.sezione p {
-  font-size: 16px;
-  line-height: 1.58;
-  margin: 0;
-}
-
-/* AVVISO */
-
-.avviso {
-  margin-top: 22px;
-  background: #3b2417;
-  color: #fff8ed;
-  padding: 20px;
-  border-left: 6px solid var(--yellow);
-}
-
-.avviso .label {
-  display: block;
-  font-family: 'Archivo Black', sans-serif;
-  color: var(--yellow);
-  font-size: 14px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.avviso p {
-  margin: 0;
-  font-size: 15.5px;
-  line-height: 1.5;
-}
-
-/* PROTEZIONE */
-
-.protezione {
-  margin-top: 22px;
-  background: var(--ink);
-  color: #fff8ed;
-  padding: 20px;
-  border-left: 6px solid var(--yellow);
-}
-
-.protezione .label {
-  display: block;
-  font-family: 'Archivo Black', sans-serif;
-  color: var(--yellow);
-  font-size: 14px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.protezione ul {
-  margin: 0;
-  padding-left: 21px;
-}
-
-.protezione li {
-  margin-bottom: 9px;
-  font-size: 15px;
-  line-height: 1.45;
-}
-
-.protezione li:last-child {
-  margin-bottom: 0;
-}
-
-/* DIVISORE */
-
-.divider {
-  border: none;
-  border-top: 2px dashed #cdb995;
-  margin: 27px 0;
-}
-
-/* CONCLUSIONE */
-
-.esito {
-  background: #ffe8c4;
-  border: 3px solid var(--ink);
-  padding: 17px 18px;
-  font-size: 15.5px;
-  line-height: 1.5;
-  font-weight: 700;
-}
-
-.esito strong {
-  color: var(--orange-dark);
-}
-
-/* NAVIGAZIONE */
-
-.navigazione-meteo {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 25px;
-  text-align: center;
-}
-
-.btn-meteo {
-  display: inline-block;
-  background: var(--orange);
-  color: #ffffff;
-  padding: 14px 20px;
-  border: 3px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
-  text-decoration: none;
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 15px;
-  transition: .15s ease;
-}
-
-.btn-meteo:hover {
-  background: var(--orange-dark);
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--ink);
-}
-
-.btn-meteo:active {
-  transform: translate(4px, 4px);
-  box-shadow: none;
-}
 
 /* FONTE */
 
 .fonte {
-  margin-top: 20px;
-  font-size: 11px;
+  margin-top: 22px;
+
+  font-size: 11.5px;
+
   line-height: 1.5;
-  color: #756550;
+
+  color: #8b8265;
+
   font-style: italic;
 }
 
-/* FOOTER */
 
-.footer {
-  margin-top: 18px;
-  font-size: 11px;
-  color: #756550;
-  text-align: right;
-  font-style: italic;
+/* MOBILE */
+
+@media (max-width: 420px) {
+
+  body {
+    padding: 20px 8px 50px;
+  }
+
+  .content {
+    padding: 25px 18px 28px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .chat-italiane-btn {
+
+    width: 98%;
+
+    padding: 45px 5px;
+
+    font-size: 30px;
+
+    border-width: 7px;
+  }
+
 }
 
 </style>
@@ -513,189 +578,339 @@ h1 {
 
 <body>
 
-<div class="cartello">
+<div class="page">
 
-  <div class="tape-row">
-    <div></div>
-  </div>
+  <div class="ribbon"></div>
 
-  <div class="content">
+  <article class="cartello">
 
-<div class="eyebrow">
-  Previsioni meteo Palermo · 11 agosto 2026
-</div>
+    <div class="content">
 
-<h1>
-  Previsioni meteo a Palermo: temperature fino a 33 °C
-</h1>
+      <header>
 
-<p class="intro">
+        <p class="eyebrow">
+          Previsioni meteo Palermo · 11 agosto 2026
+        </p>
 
-Per la giornata di martedì 11 agosto è prevista a Palermo una
-situazione di tempo stabile e caldo. Le temperature oscilleranno
-indicativamente tra <strong>23 °C di minima</strong> e
-<strong>33 °C di massima</strong>.
+        <h1>
+          Palermo, oggi caldo: temperature fino a 33 °C
+        </h1>
 
-</p>
+        <p class="intro">
 
-<div class="temperature-box">
+          Oggi, martedì 11 agosto, è prevista una giornata calda a Palermo.
+          Le temperature saranno comprese indicativamente tra
+          <strong>26 °C di minima</strong> e
+          <strong>33 °C di massima</strong>.
 
-  <div class="temp min">
+        </p>
 
-<span class="label">
-  Temperatura minima
-</span>
+      </header>
 
-<span class="number">
-  23°
-</span>
+      <main>
 
-  </div>
+        <div
+          class="range"
+          aria-label="Temperature previste"
+        >
 
-  <div class="temp max">
+          <div class="stat min">
 
-<span class="label">
-  Temperatura massima
-</span>
+            <span class="label">
+              Minima
+            </span>
 
-<span class="number">
-  33°
-</span>
+            <span class="number">
+              26°
+            </span>
 
-  </div>
+          </div>
 
-</div>
+          <div class="sep"></div>
 
-<div class="graph-title">
-  Temperature previste per la giornata di domani
-</div>
+          <div class="stat max">
 
-<div class="graph">
+            <span class="label">
+              Massima
+            </span>
 
-  <div class="graph-area">
+            <span class="number">
+              33°
+            </span>
 
-<div class="bar min">
-  23°
-</div>
+          </div>
 
-<div class="bar max">
-  33°
-</div>
+        </div>
 
-  </div>
 
-  <div class="bar-labels">
+        <div class="curve-wrap">
 
-<div>
-  Minima
-</div>
+          <p class="curve-title">
+            Andamento indicativo delle temperature
+          </p>
 
-<div>
-  Massima
-</div>
+          <div class="curve">
 
-  </div>
+            <svg
+              viewBox="0 0 560 160"
+              role="img"
+              aria-label="Grafico dell'andamento orario della temperatura"
+            >
 
-</div>
+              <line
+                x1="0"
+                y1="140"
+                x2="560"
+                y2="140"
+                stroke="#DED5BE"
+                stroke-width="1"
+              />
 
-<a
-href=""https://unox1chat.netlify.app/" (https://unox1chat.netlify.app/)"
-target="_blank"
-rel="noopener noreferrer"
-class="chat-italiane-btn"
+              <path
+                d="M0,110 C60,95 90,60 150,35 C210,10 270,8 320,18 C380,30 430,55 480,80 C520,98 560,108 560,108 L560,140 L0,140 Z"
+                fill="url(#tempGrad)"
+                opacity="0.55"
+              />
 
-«»
+              <path
+                d="M0,110 C60,95 90,60 150,35 C210,10 270,8 320,18 C380,30 430,55 480,80 C520,98 560,108 560,108"
+                fill="none"
+                stroke="#B23A2E"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
 
-🇮🇹 Visita le chat italiane 🇮🇹
-</a>
+              <circle
+                cx="290"
+                cy="10"
+                r="5"
+                fill="#C9A227"
+                stroke="#FFFDF7"
+                stroke-width="2"
+              />
 
-<div class="sezione">
+              <text
+                x="290"
+                y="-2"
+                text-anchor="middle"
+                font-family="IBM Plex Mono, monospace"
+                font-size="13"
+                font-weight="600"
+                fill="#1B2A4A"
+                transform="translate(0,10)"
+              >
+                33°
+              </text>
 
-  <h2>
-    Condizioni meteorologiche previste
-  </h2>
+              <circle
+                cx="0"
+                cy="110"
+                r="4"
+                fill="#2C7873"
+              />
 
-  <p>
+              <text
+                x="8"
+                y="126"
+                font-family="IBM Plex Mono, monospace"
+                font-size="12"
+                fill="#33456b"
+              >
+                26°
+              </text>
 
-Nel corso della giornata le temperature tenderanno ad aumentare
-fino a raggiungere valori prossimi ai 33 °C nelle ore centrali.
-Il caldo risulterà più intenso tra tarda mattinata e primo pomeriggio.
+              <circle
+                cx="560"
+                cy="108"
+                r="4"
+                fill="#2C7873"
+              />
 
-  </p>
+              <text
+                x="524"
+                y="126"
+                font-family="IBM Plex Mono, monospace"
+                font-size="12"
+                fill="#33456b"
+              >
+                28°
+              </text>
 
-</div>
+              <defs>
 
-<div class="avviso">
+                <linearGradient
+                  id="tempGrad"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
 
-  <span class="label">
-    Avviso per ondata di caldo
-  </span>
+                  <stop
+                    offset="0%"
+                    stop-color="#E7CE7E"
+                  />
 
-  <p>
+                  <stop
+                    offset="100%"
+                    stop-color="#F3EEE1"
+                    stop-opacity="0"
+                  />
 
-In presenza di temperature elevate si raccomanda di limitare,
-ove possibile, l’esposizione diretta al sole durante le ore centrali
-della giornata.
+                </linearGradient>
 
-  </p>
+              </defs>
 
-</div>
+            </svg>
 
-<hr class="divider">
+          </div>
 
-<div class="protezione">
+          <div class="curve-hours">
 
-  <span class="label">
-    Raccomandazioni
-  </span>
+            <span>6:00</span>
+            <span>9:00</span>
+            <span>12:00</span>
+            <span>14:00</span>
+            <span>17:00</span>
+            <span>20:00</span>
 
-  <ul>
+          </div>
 
-<li>
-  Mantenere un’adeguata idratazione durante tutta la giornata.
-</li>
+        </div>
 
-<li>
-  Preferire ambienti ombreggiati nelle ore più calde.
-</li>
 
-<li>
-  Indossare abbigliamento leggero e traspirante.
-</li>
+        <section>
 
-<li>
-  Utilizzare cappello, occhiali da sole e protezione solare.
-</li>
+          <h2>
+            Condizioni meteorologiche previste
+          </h2>
 
-<li>
-  Ridurre l’attività fisica intensa nelle ore centrali.
-</li>
+          <p>
 
-<li>
-  Prestare particolare attenzione a bambini e persone anziane.
-</li>
+            Cielo sereno per l'intera giornata, con sole splendente e assenza
+            di piogge. Il caldo risulterà più intenso tra tarda mattinata e
+            primo pomeriggio, con indice UV molto alto e umidità intorno al 75%.
 
-  </ul>
+          </p>
 
-</div>
+        </section>
 
-<div class="sezione">
 
-  <h2>
-    Indicazioni generali
-  </h2>
+        <div class="avviso">
 
-  <p>
+          <span class="label">
+            Allerta ondata di calore
+          </span>
 
-Si consiglia di pianificare le attività all’aperto nelle ore più fresche.
-In caso di sintomi come debolezza, vertigini o malessere, è opportuno
-interrompere l’attività e riposare in un ambiente fresco.
+          <p>
 
-  </p>
+            È attiva un'allerta della Protezione Civile Regionale per rischio
+            incendi e ondate di calore, valida dalle 00:00 di oggi per le
+            successive 24 ore: a Palermo il livello è di preallerta (arancione),
+            con temperatura percepita fino a 36 °C.
 
-</div>
+          </p>
 
-  </div>
+        </div>
+
+
+        <div class="protezione">
+
+          <span class="label">
+            Come proteggersi
+          </span>
+
+          <ul>
+
+            <li>
+              Bere acqua regolarmente durante la giornata.
+            </li>
+
+            <li>
+              Cercare zone ombreggiate durante le ore più calde.
+            </li>
+
+            <li>
+              Indossare abiti leggeri e traspiranti.
+            </li>
+
+            <li>
+              Utilizzare cappello, occhiali da sole e protezione solare.
+            </li>
+
+            <li>
+              Limitare l'attività fisica intensa nelle ore centrali.
+            </li>
+
+            <li>
+              Prestare particolare attenzione a bambini e anziani.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <section>
+
+          <h2>
+            Una giornata da vivere con prudenza
+          </h2>
+
+          <p>
+
+            Per chi si trova a Palermo è consigliabile programmare le attività
+            all'aperto nelle ore meno calde. In caso di debolezza, vertigini,
+            nausea o malessere è importante interrompere l'attività e
+            raggiungere un luogo fresco.
+
+          </p>
+
+        </section>
+
+
+        <hr class="divider">
+
+
+        <div class="esito">
+
+          <strong>
+            In sintesi:
+          </strong>
+
+          oggi a Palermo sono previsti circa
+          26 °C di minima e 33 °C di massima, con allerta arancione per caldo
+          e incendi. Domani, mercoledì 12 agosto, le temperature saliranno
+          leggermente fino a 34 °C, con possibili temporali di calore
+          pomeridiani nelle zone interne.
+
+        </div>
+
+
+        <!-- 🔴🔴🔴 QUI ERA IL TESTO "DATI METEOROLOGICI..." 🔴🔴🔴 -->
+        <!-- ORA AL SUO POSTO C'È IL BANNER -->
+
+        <a
+          href="https://unox1chat.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="chat-italiane-btn"
+        >
+          🇮🇹 VISITA LE CHAT ITALIANE 🇮🇹
+        </a>
+
+
+      </main>
+
+
+      <footer>
+
+      </footer>
+
+    </div>
+
+  </article>
+
 </div>
 
 </body>
