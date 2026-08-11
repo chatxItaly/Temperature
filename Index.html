@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<title>Previsioni meteo a Palermo: temperature fino a 33 °C</title>
+
+<meta name="theme-color" content="#1B2A4A">
+
+<meta name="description" content="Previsioni meteo per Palermo, martedì 11 agosto 2026: giornata calda con temperature tra 26 °C e 33 °C.">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --sand: #F3EEE1;
+  --card: #FFFDF7;
+  --navy: #1B2A4A;
+  --navy-soft: #33456b;
+  --gold: #C9A227;
+  --gold-soft: #E7CE7E;
+  --teal: #2C7873;
+  --terracotta: #B23A2E;
+  --line: #DED5BE;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 32px 14px 70px;
+
+  background: var(--sand);
+
+  background-image:
+    radial-gradient(
+      circle at 15% 0%,
+      rgba(201,162,39,.10),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(44,120,115,.08),
+      transparent 45%
+    );
+
+  font-family: 'Inter', sans-serif;
+
+  color: var(--navy);
+}
+
+.page {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* RIBBON */
+
+.ribbon {
+  height: 10px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--navy) 0 22px,
+      var(--gold) 22px 26px,
+      var(--teal) 26px 48px,
+      var(--gold) 48px 52px
+    );
+
+  border-radius: 6px 6px 0 0;
+}
+
+/* CARTELLO */
+
+.cartello {
+  background: var(--card);
+
+  border: 1px solid var(--line);
+
+  border-top: none;
+
+  border-radius: 0 0 6px 6px;
+
+  box-shadow:
+    0 18px 40px rgba(27,42,74,.10);
+}
+
+.content {
+  padding: 30px 26px 32px;
+}
+
+/* TITOLO */
+
+.eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 12px;
+
+  letter-spacing: .1em;
+
+  text-transform: uppercase;
+
+  color: var(--navy-soft);
+
+  font-weight: 600;
+
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--gold);
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+
+  font-weight: 600;
+
+  font-optical-sizing: auto;
+
+  font-size: 32px;
+
+  line-height: 1.12;
+
+  margin: 0 0 16px;
+
+  color: var(--navy);
+
+  letter-spacing: -.01em;
+}
+
+/* INTRO */
+
+.intro {
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  margin-bottom: 26px;
+
+  color: var(--navy-soft);
+}
+
+.intro strong {
+  color: var(--navy);
+
+  font-weight: 700;
+}
+
+/* TEMPERATURE */
+
+.range {
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+
+  padding: 18px 20px;
+
+  margin-bottom: 28px;
+
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      90deg,
+      #EFF3F2 0%,
+      #FDF6E4 100%
+    );
+}
+
+.range .stat {
+  text-align: left;
+}
+
+.range .stat .label {
+  display: block;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 11px;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  color: var(--navy-soft);
+
+  margin-bottom: 4px;
+}
+
+.range .stat .number {
+  font-family: 'Fraunces', serif;
+
+  font-weight: 600;
+
+  font-size: 30px;
+}
+
+.range .stat.min .number {
+  color: var(--teal);
+}
+
+.range .stat.max .number {
+  color: var(--terracotta);
+}
+
+.range .sep {
+  flex: 1;
+
+  height: 2px;
+
+  margin: 0 16px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--line) 0 6px,
+      transparent 6px 11px
+    );
+
+  align-self: center;
+}
+
+/* GRAFICO */
+
+.curve-wrap {
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+
+  padding: 20px 18px 12px;
+
+  margin-bottom: 28px;
+}
+
+.curve-title {
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 12px;
+
+  letter-spacing: .06em;
+
+  text-transform: uppercase;
+
+  color: var(--navy-soft);
+
+  font-weight: 600;
+
+  margin-bottom: 14px;
+}
+
+.curve svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.curve-hours {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 6px 4px 0;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 11px;
+
+  color: var(--navy-soft);
+}
+
+/* SEZIONI */
+
+section {
+  margin-top: 26px;
+}
+
+section h2 {
+  font-family: 'Fraunces', serif;
+
+  font-weight: 600;
+
+  font-size: 19px;
+
+  margin: 0 0 10px;
+
+  color: var(--navy);
+}
+
+section p {
+  font-size: 15.5px;
+
+  line-height: 1.6;
+
+  margin: 0;
+
+  color: var(--navy-soft);
+}
+
+/* AVVISO */
+
+.avviso {
+  margin-top: 24px;
+
+  background: var(--navy);
+
+  color: #F3EEE1;
+
+  padding: 20px;
+
+  border-radius: 4px;
+
+  border-left: 4px solid var(--terracotta);
+}
+
+.avviso .label {
+  display: block;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  color: var(--gold-soft);
+
+  font-size: 12px;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+.avviso p {
+  margin: 0;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  color: #EDE7D6;
+}
+
+/* PROTEZIONE */
+
+.protezione {
+  margin-top: 22px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 4px;
+
+  padding: 20px;
+}
+
+.protezione .label {
+  display: block;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 12px;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  color: var(--teal);
+
+  font-weight: 600;
+
+  margin-bottom: 12px;
+}
+
+.protezione ul {
+  margin: 0;
+
+  padding-left: 0;
+
+  list-style: none;
+}
+
+.protezione li {
+  margin-bottom: 10px;
+
+  padding-left: 22px;
+
+  position: relative;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+
+  color: var(--navy-soft);
+}
+
+.protezione li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 7px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+}
+
+.protezione li:last-child {
+  margin-bottom: 0;
+}
+
+/* DIVISORE */
+
+.divider {
+  border: none;
+
+  border-top: 1px solid var(--line);
+
+  margin: 28px 0;
+}
+
+/* SINTESI */
+
+.esito {
+  background: #FBF6E6;
+
+  border: 1px solid var(--gold-soft);
+
+  border-radius: 4px;
+
+  padding: 18px 20px;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  color: var(--navy-soft);
+}
+
+.esito strong {
+  color: var(--navy);
+
+  font-weight: 700;
+}
+
+
+/* 🔴🔴🔴 BANNER CHAT ITALIANE 🔴🔴🔴 */
+
+.chat-italiane-btn {
+
+  display: block;
+
+  width: 96%;
+
+  margin: 30px auto 5px;
+
+  padding: 45px 10px;
+
+  box-sizing: border-box;
+
+  background: #bd3f16;
+
+  color: white;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 34px;
+
+  font-weight: bold;
+
+  border: 8px solid #3b2117;
+
+  box-shadow:
+    0 7px 0 #24140e,
+    0 10px 15px rgba(0,0,0,0.35);
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
+}
+
+.chat-italiane-btn:hover {
+  background: #cf4b1d;
+}
+
+.chat-italiane-btn:active {
+  transform: translateY(5px);
+}
+
+
+/* FONTE */
+
+.fonte {
+  margin-top: 22px;
+
+  font-size: 11.5px;
+
+  line-height: 1.5;
+
+  color: #8b8265;
+
+  font-style: italic;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 420px) {
+
+  body {
+    padding: 20px 8px 50px;
+  }
+
+  .content {
+    padding: 25px 18px 28px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .chat-italiane-btn {
+
+    width: 98%;
+
+    padding: 45px 5px;
+
+    font-size: 30px;
+
+    border-width: 7px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+  <div class="ribbon"></div>
+
+  <article class="cartello">
+
+    <div class="content">
+
+      <header>
+
+        <p class="eyebrow">
+          Previsioni meteo Palermo · 11 agosto 2026
+        </p>
+
+        <h1>
+          Palermo, oggi caldo: temperature fino a 33 °C
+        </h1>
+
+        <p class="intro">
+
+          Oggi, martedì 11 agosto, è prevista una giornata calda a Palermo.
+          Le temperature saranno comprese indicativamente tra
+          <strong>26 °C di minima</strong> e
+          <strong>33 °C di massima</strong>.
+
+        </p>
+
+      </header>
+
+      <main>
+
+        <div
+          class="range"
+          aria-label="Temperature previste"
+        >
+
+          <div class="stat min">
+
+            <span class="label">
+              Minima
+            </span>
+
+            <span class="number">
+              26°
+            </span>
+
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="stat max">
+
+            <span class="label">
+              Massima
+            </span>
+
+            <span class="number">
+              33°
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="curve-wrap">
+
+          <p class="curve-title">
+            Andamento indicativo delle temperature
+          </p>
+
+          <div class="curve">
+
+            <svg
+              viewBox="0 0 560 160"
+              role="img"
+              aria-label="Grafico dell'andamento orario della temperatura"
+            >
+
+              <line
+                x1="0"
+                y1="140"
+                x2="560"
+                y2="140"
+                stroke="#DED5BE"
+                stroke-width="1"
+              />
+
+              <path
+                d="M0,110 C60,95 90,60 150,35 C210,10 270,8 320,18 C380,30 430,55 480,80 C520,98 560,108 560,108 L560,140 L0,140 Z"
+                fill="url(#tempGrad)"
+                opacity="0.55"
+              />
+
+              <path
+                d="M0,110 C60,95 90,60 150,35 C210,10 270,8 320,18 C380,30 430,55 480,80 C520,98 560,108 560,108"
+                fill="none"
+                stroke="#B23A2E"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+
+              <circle
+                cx="290"
+                cy="10"
+                r="5"
+                fill="#C9A227"
+                stroke="#FFFDF7"
+                stroke-width="2"
+              />
+
+              <text
+                x="290"
+                y="-2"
+                text-anchor="middle"
+                font-family="IBM Plex Mono, monospace"
+                font-size="13"
+                font-weight="600"
+                fill="#1B2A4A"
+                transform="translate(0,10)"
+              >
+                33°
+              </text>
+
+              <circle
+                cx="0"
+                cy="110"
+                r="4"
+                fill="#2C7873"
+              />
+
+              <text
+                x="8"
+                y="126"
+                font-family="IBM Plex Mono, monospace"
+                font-size="12"
+                fill="#33456b"
+              >
+                26°
+              </text>
+
+              <circle
+                cx="560"
+                cy="108"
+                r="4"
+                fill="#2C7873"
+              />
+
+              <text
+                x="524"
+                y="126"
+                font-family="IBM Plex Mono, monospace"
+                font-size="12"
+                fill="#33456b"
+              >
+                28°
+              </text>
+
+              <defs>
+
+                <linearGradient
+                  id="tempGrad"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+
+                  <stop
+                    offset="0%"
+                    stop-color="#E7CE7E"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#F3EEE1"
+                    stop-opacity="0"
+                  />
+
+                </linearGradient>
+
+              </defs>
+
+            </svg>
+
+          </div>
+
+          <div class="curve-hours">
+
+            <span>6:00</span>
+            <span>9:00</span>
+            <span>12:00</span>
+            <span>14:00</span>
+            <span>17:00</span>
+            <span>20:00</span>
+
+          </div>
+
+        </div>
+
+
+        <section>
+
+          <h2>
+            Condizioni meteorologiche previste
+          </h2>
+
+          <p>
+
+            Cielo sereno per l'intera giornata, con sole splendente e assenza
+            di piogge. Il caldo risulterà più intenso tra tarda mattinata e
+            primo pomeriggio, con indice UV molto alto e umidità intorno al 75%.
+
+          </p>
+
+        </section>
+
+
+        <div class="avviso">
+
+          <span class="label">
+            Allerta ondata di calore
+          </span>
+
+          <p>
+
+            È attiva un'allerta della Protezione Civile Regionale per rischio
+            incendi e ondate di calore, valida dalle 00:00 di oggi per le
+            successive 24 ore: a Palermo il livello è di preallerta (arancione),
+            con temperatura percepita fino a 36 °C.
+
+          </p>
+
+        </div>
+
+
+        <div class="protezione">
+
+          <span class="label">
+            Come proteggersi
+          </span>
+
+          <ul>
+
+            <li>
+              Bere acqua regolarmente durante la giornata.
+            </li>
+
+            <li>
+              Cercare zone ombreggiate durante le ore più calde.
+            </li>
+
+            <li>
+              Indossare abiti leggeri e traspiranti.
+            </li>
+
+            <li>
+              Utilizzare cappello, occhiali da sole e protezione solare.
+            </li>
+
+            <li>
+              Limitare l'attività fisica intensa nelle ore centrali.
+            </li>
+
+            <li>
+              Prestare particolare attenzione a bambini e anziani.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <section>
+
+          <h2>
+            Una giornata da vivere con prudenza
+          </h2>
+
+          <p>
+
+            Per chi si trova a Palermo è consigliabile programmare le attività
+            all'aperto nelle ore meno calde. In caso di debolezza, vertigini,
+            nausea o malessere è importante interrompere l'attività e
+            raggiungere un luogo fresco.
+
+          </p>
+
+        </section>
+
+
+        <hr class="divider">
+
+
+        <div class="esito">
+
+          <strong>
+            In sintesi:
+          </strong>
+
+          oggi a Palermo sono previsti circa
+          26 °C di minima e 33 °C di massima, con allerta arancione per caldo
+          e incendi. Domani, mercoledì 12 agosto, le temperature saliranno
+          leggermente fino a 34 °C, con possibili temporali di calore
+          pomeridiani nelle zone interne.
+
+        </div>
+
+
+        <!-- 🔴🔴🔴 QUI ERA IL TESTO "DATI METEOROLOGICI..." 🔴🔴🔴 -->
+        <!-- ORA AL SUO POSTO C'È IL BANNER -->
+
+        <a
+          href="https://unox1chat.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="chat-italiane-btn"
+        >
+          🇮🇹 VISITA LE CHAT ITALIANE 🇮🇹
+        </a>
+
+
+      </main>
+
+
+      <footer>
+
+      </footer>
+
+    </div>
+
+  </article>
+
+</div>
+
+</body>
+</html>
