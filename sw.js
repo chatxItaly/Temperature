@@ -1,4 +1,4 @@
-const CACHE_NAME = "avviso-v1";
+const CACHE_NAME = "avviso-";
 const ASSETS = [
   "./index.html",
   "./manifest.json",
