@@ -2,74 +2,217 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
-
-<title>Previsioni meteo a Palermo: temperature fino a 33 °C</title>
-<meta name="theme-color" content="#06183d">
-<meta name="description" content="Previsioni meteo per Palermo, martedì 11 agosto 2026: giornata calda con temperature tra 26 °C e 33 °C.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La movida di Palermo</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
-:root{--sky:#06183d;--sky2:#0b2d67;--white:#f7fbff;--text:#eef6ff;--muted:#c7d8ef;--green:#38e27f;--green2:#7dffad;--blue-button:#0757c9;--line:rgba(255,255,255,.22)}
-*{box-sizing:border-box} html,body{min-height:100%}
-body{margin:0;padding:20px 10px 60px;color:var(--text);font-family:'Inter',sans-serif;background-color:var(--sky);background-image:radial-gradient(circle at 8% 12%,rgba(255,255,255,.95) 0 1px,transparent 1.7px),radial-gradient(circle at 23% 31%,rgba(255,255,255,.8) 0 1px,transparent 1.8px),radial-gradient(circle at 42% 10%,rgba(255,255,255,.9) 0 1.2px,transparent 2px),radial-gradient(circle at 67% 18%,rgba(255,255,255,.8) 0 1px,transparent 1.8px),radial-gradient(circle at 88% 8%,rgba(255,255,255,.95) 0 1px,transparent 1.7px),radial-gradient(circle at 14% 57%,rgba(255,255,255,.75) 0 1px,transparent 1.8px),radial-gradient(circle at 36% 72%,rgba(255,255,255,.9) 0 1px,transparent 1.7px),radial-gradient(circle at 58% 48%,rgba(255,255,255,.8) 0 1px,transparent 1.8px),radial-gradient(circle at 79% 64%,rgba(255,255,255,.9) 0 1.2px,transparent 2px),radial-gradient(circle at 94% 83%,rgba(255,255,255,.75) 0 1px,transparent 1.8px),radial-gradient(circle at 48% 92%,rgba(255,255,255,.8) 0 1px,transparent 1.8px),linear-gradient(180deg,#06183d 0%,#0a2860 55%,#06183d 100%);background-attachment:fixed}
-.page{width:100%;max-width:600px;margin:0 auto}.cartello,.content{background:transparent}.content{padding:18px 14px 30px}
-.eyebrow{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);font-weight:600;margin:0 0 14px}.eyebrow::before{content:"";width:8px;height:8px;background:var(--green);border-radius:50%;flex-shrink:0;box-shadow:0 0 10px var(--green)}
-h1{font-family:'Fraunces',serif;font-weight:600;font-size:32px;line-height:1.12;margin:0 0 16px;color:#fff}.intro{font-size:16px;line-height:1.6;margin:0 0 26px;color:var(--muted)}.intro strong{color:#fff}
-.range{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:28px;display:flex;align-items:baseline;justify-content:space-between;background:rgba(0,0,0,.16);backdrop-filter:blur(2px)}.range .stat{text-align:left}.range .stat .label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}.range .stat .number{font-family:'Fraunces',serif;font-weight:600;font-size:30px}.range .stat.min .number{color:#58e6ff}.range .stat.max .number{color:#ffad62}.range .sep{flex:1;height:2px;margin:0 16px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 6px,transparent 6px 11px);align-self:center}
-.curve-wrap{border:1px solid var(--line);border-radius:10px;padding:20px 18px 12px;margin-bottom:28px;background:rgba(0,0,0,.12)}.curve-title{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--green2);font-weight:600;margin:0 0 14px}.curve svg{width:100%;height:auto;display:block}.curve-hours{display:flex;justify-content:space-between;padding:6px 4px 0;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
-section{margin-top:26px}section h2{font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin:0 0 10px;color:#fff}section p{font-size:15.5px;line-height:1.6;margin:0;color:var(--muted)}
-.avviso{margin-top:24px;padding:20px;border-left:4px solid #ffb34d;border-radius:6px;background:rgba(0,0,0,.22)}.avviso .label{display:block;font-family:'IBM Plex Mono',monospace;color:#ffcf70;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:8px}.avviso p{margin:0;font-size:15px;line-height:1.55;color:var(--text)}
-.protezione{margin-top:22px;border:1px solid var(--line);border-radius:8px;padding:20px;background:rgba(0,0,0,.10)}.protezione .label{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green2);font-weight:600;margin-bottom:12px}.protezione ul{margin:0;padding-left:0;list-style:none}.protezione li{margin-bottom:10px;padding-left:22px;position:relative;font-size:15px;line-height:1.5;color:var(--muted)}.protezione li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}.protezione li:last-child{margin-bottom:0}.divider{border:none;border-top:1px solid var(--line);margin:28px 0}
-.esito{padding:18px 20px;font-size:15px;line-height:1.55;color:var(--muted);border-left:3px solid var(--green);background:rgba(0,0,0,.12);border-radius:5px}.esito strong{color:#fff}
-.chat-italiane-btn{display:block;width:100%;margin:32px auto 0;padding:34px 12px;box-sizing:border-box;background:#0757c9;color:#39ef7e;text-align:center;text-decoration:none;font-family:Arial,sans-serif;font-size:30px;font-weight:bold;border:6px solid #021f58;border-radius:12px;box-shadow:0 7px 0 #01143b,0 10px 22px rgba(0,0,0,.45);text-shadow:0 2px 2px rgba(0,0,0,.35);transition:background .15s ease,transform .15s ease}.chat-italiane-btn:hover{background:#0868ec}.chat-italiane-btn:active{transform:translateY(5px);box-shadow:0 2px 0 #01143b}
-@media(max-width:420px){body{padding:12px 6px 45px}.content{padding:18px 12px 26px}h1{font-size:29px}.chat-italiane-btn{width:100%;padding:38px 5px;font-size:28px}}
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #eef2ff;
+    background: radial-gradient(ellipse at top, #0d1b4c 0%, #050a24 55%, #02040f 100%);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Sfondo stellato */
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::before {
+    background-image:
+      radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, transparent),
+      radial-gradient(1px 1px at 90px 120px, #ffffff, transparent),
+      radial-gradient(2px 2px at 160px 60px, #ffe9a8, transparent),
+      radial-gradient(1px 1px at 230px 200px, #ffffff, transparent),
+      radial-gradient(1.5px 1.5px at 300px 90px, #ffffff, transparent),
+      radial-gradient(1px 1px at 40px 250px, #ffe9a8, transparent),
+      radial-gradient(2px 2px at 340px 300px, #ffffff, transparent),
+      radial-gradient(1px 1px at 120px 320px, #ffffff, transparent),
+      radial-gradient(1.5px 1.5px at 380px 150px, #ffffff, transparent),
+      radial-gradient(1px 1px at 260px 350px, #ffe9a8, transparent);
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    opacity: 0.9;
+  }
+  body::after {
+    background-image:
+      radial-gradient(1px 1px at 60px 80px, #ffffff, transparent),
+      radial-gradient(2px 2px at 180px 40px, #ffe9a8, transparent),
+      radial-gradient(1px 1px at 260px 180px, #ffffff, transparent),
+      radial-gradient(1.5px 1.5px at 20px 200px, #ffffff, transparent),
+      radial-gradient(1px 1px at 340px 260px, #ffffff, transparent);
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    opacity: 0.6;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 50px 24px 80px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 6px;
+    background: linear-gradient(90deg, #f2c14e, #f7e2a0, #f2c14e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 25px rgba(242, 193, 78, 0.35);
+  }
+
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    color: #b9c3f0;
+    margin-bottom: 45px;
+    font-size: 1.15em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    color: #f2c14e;
+    border-bottom: 1px solid rgba(242, 193, 78, 0.4);
+    padding-bottom: 8px;
+    margin-top: 55px;
+    letter-spacing: 0.3px;
+  }
+
+  h3 {
+    color: #ffe9a8;
+    margin-bottom: 6px;
+    font-size: 1.2em;
+  }
+
+  p {
+    line-height: 1.8;
+    margin-bottom: 18px;
+    color: #dbe2fb;
+    text-align: justify;
+  }
+
+  figure {
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  figure img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(242, 193, 78, 0.25), 0 15px 40px rgba(0,0,0,0.6);
+  }
+
+  figcaption {
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-style: italic;
+    color: #9aa5d8;
+  }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(242, 193, 78, 0.25);
+    font-size: 0.85em;
+    color: #7b86c2;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
-<div class="page">
-<article class="cartello"><div class="content">
-<header>
-<p class="eyebrow">Previsioni meteo Palermo · 11 agosto 2026</p>
-<h1>Palermo, oggi caldo: temperature fino a 33 °C</h1>
-<p class="intro">Oggi, martedì 11 agosto, è prevista una giornata calda a Palermo. Le temperature saranno comprese indicativamente tra <strong>26 °C di minima</strong> e <strong>33 °C di massima</strong>.</p>
-</header>
-<main>
-<div class="range" aria-label="Temperature previste"><div class="stat min"><span class="label">Minima</span><span class="number">26°</span></div><div class="sep"></div><div class="stat max"><span class="label">Massima</span><span class="number">33°</span></div></div>
-<div class="curve-wrap"><p class="curve-title">Andamento indicativo delle temperature</p><div class="curve">
-<svg viewBox="0 0 560 160" role="img" aria-label="Grafico dell'andamento orario della temperatura">
-<line x1="0" y1="140" x2="560" y2="140" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-<path d="M0,110 C60,95 90,60 150,35 C210,10 270,8 320,18 C380,30 430,55 480,80 C520,98 560,108 560,108 L560,140 L0,140 Z" fill="url(#tempGrad)" opacity=".55"/>
-<path d="M0,110 C60,95 90,60 150,35 C210,10 270,8 320,18 C380,30 430,55 480,80 C520,98 560,108 560,108" fill="none" stroke="#ffb45c" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="290" cy="10" r="5" fill="#39ef7e" stroke="#06183d" stroke-width="2"/>
-<text x="290" y="-2" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="#fff" transform="translate(0,10)">33°</text>
-<circle cx="0" cy="110" r="4" fill="#58e6ff"/><text x="8" y="126" font-family="IBM Plex Mono, monospace" font-size="12" fill="#c7d8ef">26°</text>
-<circle cx="560" cy="108" r="4" fill="#58e6ff"/><text x="524" y="126" font-family="IBM Plex Mono, monospace" font-size="12" fill="#c7d8ef">28°</text>
-<defs><linearGradient id="tempGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffb45c"/><stop offset="100%" stop-color="#06183d" stop-opacity="0"/></linearGradient></defs>
-</svg></div><div class="curve-hours"><span>6:00</span><span>9:00</span><span>12:00</span><span>14:00</span><span>17:00</span><span>20:00</span></div></div>
-<section><h2>Condizioni meteorologiche previste</h2><p>Cielo sereno per l'intera giornata, con sole splendente e assenza di piogge. Il caldo risulterà più intenso tra tarda mattinata e primo pomeriggio, con indice UV molto alto e umidità intorno al 75%.</p></section>
-<div class="avviso"><span class="label">Allerta ondata di calore</span><p>È attiva un'allerta della Protezione Civile Regionale per rischio incendi e ondate di calore, valida dalle 00:00 di oggi per le successive 24 ore: a Palermo il livello è di preallerta (arancione), con temperatura percepita fino a 36 °C.</p></div>
-<div class="protezione"><span class="label">Come proteggersi</span><ul><li>Bere acqua regolarmente durante la giornata.</li><li>Cercare zone ombreggiate durante le ore più calde.</li><li>Indossare abiti leggeri e traspiranti.</li><li>Utilizzare cappello, occhiali da sole e protezione solare.</li><li>Limitare l'attività fisica intensa nelle ore centrali.</li><li>Prestare particolare attenzione a bambini e anziani.</li></ul></div>
-<section><h2>Una giornata da vivere con prudenza</h2><p>Per chi si trova a Palermo è consigliabile programmare le attività all'aperto nelle ore meno calde. In caso di debolezza, vertigini, nausea o malessere è importante interrompere l'attività e raggiungere un luogo fresco.</p></section>
-<hr class="divider">
-<div class="esito"><strong>In sintesi:</strong> oggi a Palermo sono previsti circa 26 °C di minima e 33 °C di massima, con allerta arancione per caldo e incendi. Domani, mercoledì 12 agosto, le temperature saliranno leggermente fino a 34 °C, con possibili temporali di calore pomeridiani nelle zone interne.</div>
-<a href="https://unox1chat.netlify.app/" target="_blank" rel="noopener noreferrer" class="chat-italiane-btn">🇮🇹 VISITA LE CHAT ITALIANE 🇮🇹</a>
-</main>
-</div></article>
+
+<div class="content">
+
+  <h1>La movida di Palermo</h1>
+  <p class="subtitle">Tra vicoli barocchi, mercati storici e notti che non finiscono mai</p>
+
+  <p>Palermo è una città che di giorno racconta secoli di storia tra chiese normanne, palazzi nobiliari e mercati rionali, ma quando il sole tramonta si trasforma in uno dei palcoscenici più vivaci della movida siciliana. La sua vita notturna non è concentrata in un unico locale alla moda, ma si diffonde in interi quartieri che ogni sera si riempiono di musica, voci e profumo di street food.</p>
+
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Piazza_Pretoria_-_Palermo_-_Night_Spells_Series.jpg" alt="Piazza Pretoria di notte, Palermo">
+    <figcaption>Piazza Pretoria illuminata di notte, nel cuore del centro storico</figcaption>
+  </figure>
+
+  <h2>Le zone simbolo della movida</h2>
+
+  <h3>Piazza Sant'Anastasia e Via Chiavettieri</h3>
+  <p>Nel cuore del centro storico, tra la Vucciria e il Cassaro, questa piccola piazza si trasforma ogni sera in uno dei ritrovi più amati dai giovani palermitani. Bar affollati, birra in strada e un'atmosfera informale ne fanno il punto di partenza classico per chi vuole iniziare la serata.</p>
+
+  <h3>La Vucciria</h3>
+  <p>Storico mercato popolare, la Vucciria di giorno vende pesce e verdura, ma di notte cambia completamente volto. Le bancarelle lasciano spazio a tavolini improvvisati, musica dal vivo e un pubblico eterogeneo, dai turisti agli studenti universitari, in un mix che è diventato simbolo stesso della città.</p>
+
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mercato_Vucciria,_Castellammare,_Palermo,_Sicily,_Italy_-_panoramio_(1).jpg" alt="Mercato della Vucciria, Palermo">
+    <figcaption>Il mercato della Vucciria, tra i luoghi simbolo della vita notturna palermitana</figcaption>
+  </figure>
+
+  <h3>Piazza San Francesco e Piazza Marina</h3>
+  <p>Zone più eleganti e curate, apprezzate da chi cerca un aperitivo raffinato o una cena in un locale storico prima di proseguire la serata. Piazza Marina, con i suoi ficus monumentali, offre anche uno scenario suggestivo per una passeggiata serale.</p>
+
+  <h3>Via Candelai</h3>
+  <p>Considerata il cuore pulsante della vita notturna palermitana, questa strada stretta e vivace concentra pub, locali indie e musica alternativa. È la meta preferita di chi cerca una movida più giovane, alternativa e meno turistica.</p>
+
+  <h2>Cibo di strada e socialità</h2>
+  <p>Un elemento inseparabile della movida palermitana è lo street food. Panelle, crocché, pane con la milza e arancine si mangiano letteralmente per strada, spesso in piedi, tra una chiacchiera e l'altra. Questo rituale conviviale è parte integrante dell'esperienza notturna quanto i locali stessi, e contribuisce a creare quell'atmosfera informale e conviviale che caratterizza le serate in città.</p>
+
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ballar%C3%B2,_gente_comprando,_Palermo,_Sicilia,_Italia,_2015.JPG" alt="Mercato di Ballarò, Palermo">
+    <figcaption>Il mercato di Ballarò, tra i luoghi storici che animano le serate palermitane</figcaption>
+  </figure>
+
+  <h2>Un'identità tutta siciliana</h2>
+  <p>Ciò che distingue la movida di Palermo da quella di altre città italiane è la sua capacità di intrecciare intrattenimento e patrimonio storico. Bere un drink accanto a un palazzo del Seicento o passeggiare tra vicoli che portano il nome di antiche corporazioni artigiane rende ogni uscita notturna un'esperienza che è insieme sociale e culturale. È una movida vissuta principalmente all'aperto, tra le strade e le piazze, più che dentro le mura di un locale.</p>
+
+  <h2>Qualche consiglio pratico</h2>
+  <p>Le serate a Palermo iniziano generalmente tardi rispetto ad altre città, spesso dopo le 21, e nei weekend estivi il centro storico può restare animato fino a notte fonda. Chi visita la città per la prima volta farà bene a esplorare più zone in una sola serata, magari iniziando con un aperitivo in una piazza più tranquilla per poi immergersi nella confusione festosa della Vucciria o di Via Candelai.</p>
+
+  <footer>
+    Articolo informativo sulla vita notturna di Palermo · Fotografie da Wikimedia Commons
+  </footer>
+
 </div>
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js")
-      .then(function (registration) { console.log("Service Worker attivo:", registration.scope); })
-      .catch(function (error) { console.error("Errore Service Worker:", error); });
-  });
-}
+(function() {
+  var style = document.createElement('style');
+  style.textContent = `
+    .chat-italiane-btn {
+      display: block; width: 100%; max-width: 600px;
+      margin: 32px auto 0; padding: 34px 12px;
+      box-sizing: border-box; background: #0757c9;
+      color: #39ef7e; text-align: center;
+      text-decoration: none; font-family: Arial, sans-serif;
+      font-size: 30px; font-weight: bold;
+      border: 6px solid #021f58; border-radius: 12px;
+      box-shadow: 0 7px 0 #01143b, 0 10px 22px rgba(0,0,0,.45);
+      text-shadow: 0 2px 2px rgba(0,0,0,.35);
+      transition: background .15s ease, transform .15s ease;
+    }
+    .chat-italiane-btn:hover { background: #0868ec; }
+    .chat-italiane-btn:active { transform: translateY(5px); box-shadow: 0 2px 0 #01143b; }
+    @media (max-width: 420px) {
+      .chat-italiane-btn { padding: 38px 5px; font-size: 28px; }
+    }
+  `;
+  document.head.appendChild(style);
+  var banner = document.createElement('a');
+  banner.href = 'https://https://chatxitaly.github.io/1x1//';
+  banner.target = '_blank';
+  banner.rel = 'noopener noreferrer';
+  banner.className = 'chat-italiane-btn';
+  banner.innerHTML = '&#x1F1EE;&#x1F1F9; VISITA LE CHAT ITALIANE &#x1F1EE;&#x1F1F9;';
+  document.body.appendChild(banner);
+})();
 </script>
 </body>
 </html>
